@@ -1,0 +1,63 @@
+﻿@model Legal.Models.BUEventLog
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="bordered hovered">
+    <thead>
+        <tr class="bg-color-blueLight">
+            <th class="text-center">Kode BU</th>
+            <th class="text-center">Nama Badan Usaha</th>
+            <th class="text-center">Tgl. Berakhir</th>
+        </tr>
+    </thead>
+
+@{
+    using (Legal.Models.LegalMailerContext db = new Legal.Models.LegalMailerContext())
+    {
+        IEnumerable<Legal.Models.BUEventLog> x = db.BUEventLogs.Where(a=>a.ID == Model.ID);
+        foreach (var o in x)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => o.PKSKD)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => o.PKSNM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => o.PKSTGLAKH)
+                </td>
+            </tr>
+        }
+    }
+}
+
+</table>
+
+
+
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Edit</legend>
+        @Html.HiddenFor(model => model.ID)
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KETERANGAN)
+        </div>
+        <div class="input-control text span6">
+            @Html.TextAreaFor(model => model.KETERANGAN)
+            @Html.ValidationMessageFor(model => model.KETERANGAN)
+        </div>
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Legal.Models.BUEventLog>
+@*@model IEnumerable<Legal.DTO.BUEvent>*@
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<table class="bordered hovered">
+    <thead>
+        <tr class="bg-color-blueLight">
+            <th class="text-center">Kode BU</th>
+            <th class="text-center">Nama Badan Usaha</th>
+            <th class="text-center">Tgl. Berakhir</th>
+            <th class="text-center">Keterangan</th>
+            <th class="text-center"></th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSKD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSNM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSTGLAKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KETERANGAN)
+        </td>
+@*        <td>
+            @Html.DisplayFor(modelItem => item.ISSEND)
+        </td>*@
+        <td>
+            @Html.ActionLink("Details", "BuEventLogDetail", new { id = item.ID }) |
+            <button id="detailss">Open Dialog</button>
+        </td>
+    </tr>
+}
+</table>
+<div id="dialog">
+    @{Html.RenderPartial("BUEventLogDetail");}
+</div>
+@*<div id="dialog" title="Basic dialog">
+
+<p>This is an animated dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>*@
+<button id="opener">Open Dialog</button>
+<script type="text/javascript">
+    //function test() {
+    //    $("#BuEventlogDetail").dialog('Open');
+    //};
+    $(function () {
+        $("#dialog").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $("#detailss").click(function () {
+            $("#BuEventlogDetail").dialog("open");
+        });
+    });
+
+    $(function () {
+        $("#dialog").dialog({
+            autoOpen: false,
+            show: {
+                effect: "blind",
+                duration: 1000
+            },
+            hide: {
+                effect: "explode",
+                duration: 1000
+            }
+        });
+        $("#opener").click(function () {
+            $("#dialog").dialog("open");
+        });
+    });
+</script>

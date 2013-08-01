@@ -1,0 +1,24 @@
+﻿<div class="nav-bar">
+    <div class="nav-bar-inner padding10">
+        <span class="pull-menu"></span>
+
+        <a href="/">
+        <span class="element brand">Notif <small>Versi 1.0.0</small></span>
+        </a>
+
+        <div class="divider"></div>
+        @if (Request.IsAuthenticated)
+        {
+        <ul class="menu">
+            <li data-role="dropdown"><a href="#">Notifikasi</a>
+                <ul class="dropdown-menu">
+                    <li>@Html.ActionLink("BadanUsaha", "Index", "BadanUsaha")</li>
+                    <li>@Html.ActionLink("Provider", "Index", "Provider")</li>
+                    <li>@Html.ActionLink("Vendor", "Index", "Vendor")</li>
+                </ul>
+            </li>
+        </ul>
+        }
+    </div>
+</div>
+

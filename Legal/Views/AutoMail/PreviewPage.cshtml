@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Legal.Models.vwSendEmail>
+
+@{
+    Layout = null;
+}
+@System.Web.Optimization.Styles.Render("~/Content/Metro/css")
+@System.Web.Optimization.Styles.Render("~/Content/themes/base/css")
+
+
+@System.Web.Optimization.Scripts.Render("~/bundles/jquery")  
+@System.Web.Optimization.Scripts.Render("~/bundles/jqueryui")
+@System.Web.Optimization.Scripts.Render("~/bundles/modernizr")
+@System.Web.Optimization.Scripts.Render("~/bundles/Metro/js")
+<table class="bordered hovered">
+    <thead>
+        <tr class="bg-color-blueLight">
+            <th class="text-center">No.</th>
+            <th class="text-center">Polis</th>
+            <th class="text-center">Kode BU</th>
+            <th class="text-center">Nama Badan Usaha</th>
+            <th class="text-center">Tgl. Berakhir</th>
+            <th class="text-center">Keterangan</th>
+        </tr>
+    </thead>
+@{
+    var i = 0;var j=1;
+    foreach (var item in Model) {
+        i +=j;
+        <tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NOMOR)
+            </td>   
+            <td>
+                @Html.DisplayFor(modelItem => item.PKSKD)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PKSNM)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PKSTGLAKH)
+            </td>
+            <td>
+                <a href="http://localhost:1815/BadanUsaha/edit/@item.ID">ISI KETERANGAN</a>
+            </td>
+        </tr>
+    }
+}
+
+</table>

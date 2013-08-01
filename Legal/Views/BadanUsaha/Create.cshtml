@@ -1,0 +1,156 @@
+﻿@model Legal.Models.BUEventLog
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>BUEventLog</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KDKC)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KDKC)
+            @Html.ValidationMessageFor(model => model.KDKC)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NMKC)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NMKC)
+            @Html.ValidationMessageFor(model => model.NMKC)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PKSKD)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PKSKD)
+            @Html.ValidationMessageFor(model => model.PKSKD)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PKSNM)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PKSNM)
+            @Html.ValidationMessageFor(model => model.PKSNM)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NOMOR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NOMOR)
+            @Html.ValidationMessageFor(model => model.NOMOR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PKSKE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PKSKE)
+            @Html.ValidationMessageFor(model => model.PKSKE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PKSTGLML)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PKSTGLML)
+            @Html.ValidationMessageFor(model => model.PKSTGLML)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PKSTGLAKH)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.PKSTGLAKH)
+            @Html.ValidationMessageFor(model => model.PKSTGLAKH)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KDCRBYR)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KDCRBYR)
+            @Html.ValidationMessageFor(model => model.KDCRBYR)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KDLAPSE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KDLAPSE)
+            @Html.ValidationMessageFor(model => model.KDLAPSE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.MENUNAME)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.MENUNAME)
+            @Html.ValidationMessageFor(model => model.MENUNAME)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.KETERANGAN)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.KETERANGAN)
+            @Html.ValidationMessageFor(model => model.KETERANGAN)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.EMAIL)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.EMAIL)
+            @Html.ValidationMessageFor(model => model.EMAIL)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CREATEDDATE)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CREATEDDATE)
+            @Html.ValidationMessageFor(model => model.CREATEDDATE)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WEEK)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.WEEK)
+            @Html.ValidationMessageFor(model => model.WEEK)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.ISSEND)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ISSEND)
+            @Html.ValidationMessageFor(model => model.ISSEND)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

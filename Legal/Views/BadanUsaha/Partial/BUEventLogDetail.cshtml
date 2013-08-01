@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Legal.Models.BUEventLog>
+@*@model IEnumerable<Legal.DTO.BUEvent>*@
+@*<p>
+    @Html.ActionLink("Create New", "Create")
+</p>*@
+@*@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}*@
+<table class="bordered hovered">
+    <thead>
+        <tr class="bg-color-blueLight">
+            <th class="text-center">Kode BU</th>
+            <th class="text-center">Nama Badan Usaha</th>
+            <th class="text-center">Tgl. Berakhir</th>
+            <th class="text-center">Keterangan</th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSKD)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSNM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PKSTGLAKH)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KETERANGAN)
+        </td>
+@*        <td>
+            @Html.DisplayFor(modelItem => item.ISSEND)
+        </td>*@
+@*        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>*@
+    </tr>
+}
+
+</table>

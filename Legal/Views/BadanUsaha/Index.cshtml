@@ -1,0 +1,76 @@
+﻿@model Legal.DTO.BranchWeek
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*    @if(@Model.Cabang == System.DBNull)
+    {
+        Model.Cabang = "0201";
+    };
+    
+    @if(@Model.Tanggal == null)
+    {
+        Model.Tanggal = DateTime.Now.Date;
+    };
+                                            
+    }*@
+<h2>Badan Usaha</h2>
+    <fieldset>
+        <legend>Cabang</legend>
+        <div class="input-control text span6">
+            <select id="Cabang" name="Cabang" required="required">
+            </select>
+        </div>
+        <div class="input-control text span6">
+            <input type="text" id="Date" name="Date" required="required" />
+        </div>
+        <div>
+            <input type="submit" id="Cari" name="Cari" value="Cari" />
+        </div>
+    </fieldset>
+@*<div>
+    @Html.Hidden("Cabang","0201")
+    @Html.Action("BuEventLog", new { kdkc="0201" })
+</div>*@
+@*@Html.ActionLink("show modal", "Edit", null, new { @class = "modal" })*@
+<div id="BUEventLog"></div>
+<div id="BUEventLogDetail"></div>
+@*<div>This is the partial view</div>*@
+<script type="text/javascript">
+    $(document).ready(function () {
+        ListCabang();
+        $("#Cari").click(function () {
+            var Cabang = $('#Cabang').val();
+            var Tanggal = $('#Date').val();
+            $('#BUEventLog').load('/BadanUsaha/BuEventLog?Cabang=' + Cabang + '&Tanggal=' + Tanggal);
+        });
+
+
+        function ListCabang() {
+            var url = "@Url.Action("ListCabang", "Referensi")";
+            $.getJSON(url,
+                function (data) {
+                    var items;
+                    $.each(data, function (i, item) {
+                        items += "<option value='" + item.KDKC + "'>" + item.NMKC + "</option>";
+                    });
+                    $("#Cabang").html(items);
+                });
+        };
+
+        $("#Date").datepicker({
+            showOn: "button",
+            buttonImage: "Metro/images/misc/tear_off_calendar.png",
+            buttonImageOnly: true,
+            dateFormat: "dd/mm/yy",
+            defaultDate: "1",
+            changeMonth: true,
+            numberOfMonths: 1,
+            onClose: function (selectedDate) {
+                $("#EndDate").datepicker("option", "minDate", selectedDate);
+            }
+        });
+    });
+</script>

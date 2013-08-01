@@ -1,0 +1,131 @@
+﻿@model Legal.Models.BUEventLog
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>BUEventLog</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KDKC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KDKC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NMKC)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NMKC)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSKD)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSKD)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSNM)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSNM)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NOMOR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NOMOR)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSKE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSKE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSTGLML)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSTGLML)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.PKSTGLAKH)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PKSTGLAKH)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KDCRBYR)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KDCRBYR)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KDLAPSE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KDLAPSE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MENUNAME)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MENUNAME)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.KETERANGAN)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KETERANGAN)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.EMAIL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.EMAIL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CREATEDDATE)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CREATEDDATE)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WEEK)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WEEK)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ISSEND)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ISSEND)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
